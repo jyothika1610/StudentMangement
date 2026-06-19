@@ -8,19 +8,19 @@ function Subject() {
   const [subjects, setSubjects] = useState([]);
 
   const fetchSubjects = async () => {
-    const res = await axios.get("http://localhost:8080/subjects");
+    const res = await axios.get("https://studentmangement-ei4d.onrender.com/subjects");
     setSubjects(res.data);
   };
 
   const addSubject = async () => {
-    await axios.post("http://localhost:8080/subject", { subjectName });
+    await axios.post("https://studentmangement-ei4d.onrender.com/subject", { subjectName });
     setSubjectName("");
     fetchSubjects();
   };
 
   const deleteSubject = async (id) => {
     if (window.confirm("Delete this subject?")) {
-      await axios.delete(`http://localhost:8080/subject/${id}`);
+      await axios.delete(`https://studentmangement-ei4d.onrender.com/subject/${id}`);
       fetchSubjects();
     }
   };
@@ -31,7 +31,7 @@ function Subject() {
       return;
     }
     const res = await axios.get(
-      `http://localhost:8080/subject/search?name=${name}`
+      `https://studentmangement-ei4d.onrender.com/subject/search?name=${name}`
     );
     setSubjects(res.data);
   };
